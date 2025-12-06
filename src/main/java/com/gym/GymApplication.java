@@ -23,8 +23,9 @@ public class GymApplication extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/view/auth/login.fxml"));
         Scene scene = new Scene(root, 900, 600);
         scene.getStylesheets().add(getClass().getResource("/css/styles.css").toExternalForm());
-        primaryStage.setTitle("Gym Management System");
+        primaryStage.setTitle("Welcome - Please Login");
         primaryStage.setScene(scene);
+        primaryStage.setMaximized(true);  // Maximize window by default
         primaryStage.show();
     }
 

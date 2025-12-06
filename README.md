@@ -109,7 +109,9 @@ GMS/
 │                   └── my-statistics.fxml
 │
 ├── .gitignore
-├── README.md
+├── README.md                                        # Project overview and setup
+├── PROJECT_GUIDE.md                                 # Complete beginner guide
+├── CODE_WALKTHROUGH.md                              # Detailed code explanations
 └── pom.xml                                          # Maven build configuration
 ```
 
@@ -193,6 +195,8 @@ GMS/
    ```bash
    mvn clean javafx:run
    ```
+   
+   **Note:** The application window opens maximized by default with the title "Login".
 
 ## Default Login Credentials
 
@@ -201,6 +205,12 @@ All accounts use the password: `password123`
 - **Admin**: `admin@gym.com`
 - **Trainer**: `trainer1@gym.com`, `trainer2@gym.com`, `trainer3@gym.com`
 - **Member**: `member1@email.com`, `member2@email.com`
+
+## Documentation
+
+For detailed explanations of the codebase, see:
+- **PROJECT_GUIDE.md** - Complete beginner-friendly guide explaining Java concepts, project architecture, and how everything works
+- **CODE_WALKTHROUGH.md** - Line-by-line code explanations for key files
 
 ## Building Executable JAR
 

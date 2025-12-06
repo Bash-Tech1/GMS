@@ -11,7 +11,7 @@
     <center>
         <VBox alignment="CENTER" spacing="20">
             <VBox alignment="CENTER" spacing="15" styleClass="login-card">
-                <Label text="🏋️ GYM MANAGER" styleClass="login-title"/>
+                <Label text="Login" styleClass="login-title"/>
                 <Label text="Welcome back! Please login to continue" styleClass="login-subtitle"/>
                 
                 <VBox spacing="15" alignment="CENTER">
