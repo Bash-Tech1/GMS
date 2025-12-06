@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.gym.controller.admin.AdminDashboardController">
+    <top>
+        <HBox styleClass="dashboard-header" alignment="CENTER_LEFT" spacing="15">
+            <Label text="⚙️ Admin Dashboard" styleClass="dashboard-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Logout" onAction="#handleLogout" styleClass="logout-button"/>
+        </HBox>
+    </top>
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background: #F5F6FA;">
+            <VBox spacing="25" styleClass="dashboard-content">
+                <VBox spacing="10" styleClass="welcome-section">
+                    <Label text="Welcome, Administrator!" styleClass="welcome-text"/>
+                    <Label text="Manage your gym operations efficiently" styleClass="welcome-subtext"/>
+                </VBox>
+                
+                <!-- User Management Section -->
+                <VBox spacing="15">
+                    <Label text="👥 User Management" styleClass="section-title"/>
+                    <GridPane hgap="20" vgap="20" styleClass="actions-grid">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+                            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+                            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+                        </columnConstraints>
+                        <VBox styleClass="action-card" GridPane.columnIndex="0">
+                            <Label text="Manage All Users" styleClass="action-card-title"/>
+                            <Label text="View, add, edit, or remove users (members, trainers, admins)" 
+                                   styleClass="action-card-description" wrapText="true"/>
+                            <Button text="Open" onAction="#handleManageUsers" styleClass="action-button" 
+                                    HBox.hgrow="ALWAYS" style="-fx-margin-top: 10px;"/>
+                        </VBox>
+                        <VBox styleClass="action-card" GridPane.columnIndex="1">
+                            <Label text="Manage Trainers" styleClass="action-card-title"/>
+                            <Label text="View and manage trainer accounts and assignments" 
+                                   styleClass="action-card-description" wrapText="true"/>
+                            <Button text="Open" onAction="#handleManageTrainers" styleClass="action-button" 
+                                    HBox.hgrow="ALWAYS" style="-fx-margin-top: 10px;"/>
+                        </VBox>
+                        <VBox styleClass="action-card" GridPane.columnIndex="2">
+                            <Label text="Manage Members" styleClass="action-card-title"/>
+                            <Label text="View and manage member accounts and memberships" 
+                                   styleClass="action-card-description" wrapText="true"/>
+                            <Button text="Open" onAction="#handleManageMembers" styleClass="action-button" 
+                                    HBox.hgrow="ALWAYS" style="-fx-margin-top: 10px;"/>
+                        </VBox>
+                    </GridPane>
+                </VBox>
+                
+                <!-- Plans & Equipment Section -->
+                <VBox spacing="15">
+                    <Label text="📋 Plans &amp; Equipment" styleClass="section-title"/>
+                    <GridPane hgap="20" vgap="20" styleClass="actions-grid">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+                            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+                            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+                        </columnConstraints>
+                        <VBox styleClass="action-card" GridPane.columnIndex="0">
+                            <Label text="Manage Plans" styleClass="action-card-title"/>
+                            <Label text="Create, edit, or delete membership plans" 
+                                   styleClass="action-card-description" wrapText="true"/>
+                            <Button text="Open" onAction="#handleManagePlans" styleClass="action-button" 
+                                    HBox.hgrow="ALWAYS" style="-fx-margin-top: 10px;"/>
+                        </VBox>
+                        <VBox styleClass="action-card" GridPane.columnIndex="1">
+                            <Label text="Manage Equipment" styleClass="action-card-title"/>
+                            <Label text="Add, edit, or remove gym equipment" 
+                                   styleClass="action-card-description" wrapText="true"/>
+                            <Button text="Open" onAction="#handleManageEquipment" styleClass="action-button" 
+                                    HBox.hgrow="ALWAYS" style="-fx-margin-top: 10px;"/>
+                        </VBox>
+                        <VBox styleClass="action-card" GridPane.columnIndex="2">
+                            <Label text="Equipment Status" styleClass="action-card-title"/>
+                            <Label text="View equipment maintenance and status" 
+                                   styleClass="action-card-description" wrapText="true"/>
+                            <Button text="Open" onAction="#handleEquipmentStatus" styleClass="action-button" 
+                                    HBox.hgrow="ALWAYS" style="-fx-margin-top: 10px;"/>
+                        </VBox>
+                    </GridPane>
+                </VBox>
+                
+                <!-- Reports & Analytics Section -->
+                <VBox spacing="15">
+                    <Label text="📊 Reports &amp; Analytics" styleClass="section-title"/>
+                    <GridPane hgap="20" vgap="20" styleClass="actions-grid">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+                            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+                            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+                        </columnConstraints>
+                        <VBox styleClass="action-card" GridPane.columnIndex="0">
+                            <Label text="View Reports" styleClass="action-card-title"/>
+                            <Label text="Generate comprehensive reports and analytics" 
+                                   styleClass="action-card-description" wrapText="true"/>
+                            <Button text="Open" onAction="#handleViewReports" styleClass="action-button" 
+                                    HBox.hgrow="ALWAYS" style="-fx-margin-top: 10px;"/>
+                        </VBox>
+                        <VBox styleClass="action-card" GridPane.columnIndex="1">
+                            <Label text="Payment History" styleClass="action-card-title"/>
+                            <Label text="View all payment transactions and revenue" 
+                                   styleClass="action-card-description" wrapText="true"/>
+                            <Button text="Open" onAction="#handleViewPayments" styleClass="action-button" 
+                                    HBox.hgrow="ALWAYS" style="-fx-margin-top: 10px;"/>
+                        </VBox>
+                        <VBox styleClass="action-card" GridPane.columnIndex="2">
+                            <Label text="Attendance Reports" styleClass="action-card-title"/>
+                            <Label text="View attendance statistics and trends" 
+                                   styleClass="action-card-description" wrapText="true"/>
+                            <Button text="Open" onAction="#handleAttendanceReports" styleClass="action-button" 
+                                    HBox.hgrow="ALWAYS" style="-fx-margin-top: 10px;"/>
+                        </VBox>
+                    </GridPane>
+                </VBox>
+                
+                <!-- Classes & Bookings Section -->
+                <VBox spacing="15">
+                    <Label text="📅 Classes &amp; Bookings" styleClass="section-title"/>
+                    <GridPane hgap="20" vgap="20" styleClass="actions-grid">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+                            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+                        </columnConstraints>
+                        <VBox styleClass="action-card" GridPane.columnIndex="0">
+                            <Label text="View All Classes" styleClass="action-card-title"/>
+                            <Label text="View and manage all class sessions" 
+                                   styleClass="action-card-description" wrapText="true"/>
+                            <Button text="Open" onAction="#handleViewClasses" styleClass="action-button" 
+                                    HBox.hgrow="ALWAYS" style="-fx-margin-top: 10px;"/>
+                        </VBox>
+                        <VBox styleClass="action-card" GridPane.columnIndex="1">
+                            <Label text="View All Bookings" styleClass="action-card-title"/>
+                            <Label text="View all class bookings and reservations" 
+                                   styleClass="action-card-description" wrapText="true"/>
+                            <Button text="Open" onAction="#handleViewBookings" styleClass="action-button" 
+                                    HBox.hgrow="ALWAYS" style="-fx-margin-top: 10px;"/>
+                        </VBox>
+                    </GridPane>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.gym.controller.admin.EquipmentStatusController">
+    <top>
+        <HBox styleClass="dashboard-header" alignment="CENTER_LEFT" spacing="15">
+            <Button text="← Back" onAction="#handleBack" styleClass="action-button" style="-fx-background-color: #95A5A6;"/>
+            <Label text="🔧 Equipment Status" styleClass="dashboard-title"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="20" styleClass="dashboard-content">
+            <HBox spacing="20">
+                <VBox styleClass="action-card" style="-fx-padding: 15px;">
+                    <Label text="Active Equipment" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #27AE60;"/>
+                    <Label fx:id="activeCountLabel" text="0" style="-fx-font-size: 24px;"/>
+                </VBox>
+                <VBox styleClass="action-card" style="-fx-padding: 15px;">
+                    <Label text="Maintenance" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #F39C12;"/>
+                    <Label fx:id="maintenanceCountLabel" text="0" style="-fx-font-size: 24px;"/>
+                </VBox>
+                <VBox styleClass="action-card" style="-fx-padding: 15px;">
+                    <Label text="Retired" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #E74C3C;"/>
+                    <Label fx:id="retiredCountLabel" text="0" style="-fx-font-size: 24px;"/>
+                </VBox>
+            </HBox>
+            
+            <TableView fx:id="equipmentTable" style="-fx-background-color: white;">
+                <columns>
+                    <TableColumn text="ID" prefWidth="50">
+                        <cellValueFactory><PropertyValueFactory property="id"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Name" prefWidth="200">
+                        <cellValueFactory><PropertyValueFactory property="name"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Status" prefWidth="120">
+                        <cellValueFactory><PropertyValueFactory property="status"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Last Maintenance" prefWidth="150">
+                        <cellValueFactory><PropertyValueFactory property="lastMaintenanceStr"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Days Since Maintenance" prefWidth="180">
+                        <cellValueFactory><PropertyValueFactory property="daysSinceMaintenanceStr"/></cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>
+

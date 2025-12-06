@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.gym.controller.trainer.MyClassesController">
+    <top>
+        <HBox styleClass="dashboard-header" alignment="CENTER_LEFT" spacing="15">
+            <Button text="← Back" onAction="#handleBack" styleClass="action-button" style="-fx-background-color: #95A5A6;"/>
+            <Label text="📅 My Classes" styleClass="dashboard-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="+ Create New" onAction="#handleCreate" styleClass="action-button" style="-fx-background-color: #27AE60;"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="20" styleClass="dashboard-content">
+            <TableView fx:id="classesTable" style="-fx-background-color: white;">
+                <columns>
+                    <TableColumn text="ID" prefWidth="50">
+                        <cellValueFactory><PropertyValueFactory property="id"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Title" prefWidth="200">
+                        <cellValueFactory><PropertyValueFactory property="title"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Start Time" prefWidth="150">
+                        <cellValueFactory><PropertyValueFactory property="startTimeStr"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="End Time" prefWidth="150">
+                        <cellValueFactory><PropertyValueFactory property="endTimeStr"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Capacity" prefWidth="80">
+                        <cellValueFactory><PropertyValueFactory property="capacity"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Enrolled" prefWidth="80">
+                        <cellValueFactory><PropertyValueFactory property="enrolled"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Status" prefWidth="100">
+                        <cellValueFactory><PropertyValueFactory property="status"/></cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+            <HBox spacing="10">
+                <Button text="Edit" onAction="#handleEdit" styleClass="action-button"/>
+                <Button text="Delete" onAction="#handleDelete" styleClass="action-button" style="-fx-background-color: #E74C3C;"/>
+                <Button text="Manage Equipment" onAction="#handleEquipment" styleClass="action-button" style="-fx-background-color: #3498DB;"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
+

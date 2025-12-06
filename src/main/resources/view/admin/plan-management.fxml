@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.gym.controller.admin.PlanManagementController">
+    <top>
+        <HBox styleClass="dashboard-header" alignment="CENTER_LEFT" spacing="15">
+            <Button text="← Back" onAction="#handleBack" styleClass="action-button" style="-fx-background-color: #95A5A6;"/>
+            <Label text="📋 Plan Management" styleClass="dashboard-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Add New Plan" onAction="#handleAddPlan" styleClass="action-button"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="20" styleClass="dashboard-content">
+            <TableView fx:id="plansTable" style="-fx-background-color: white;">
+                <columns>
+                    <TableColumn text="ID" prefWidth="50">
+                        <cellValueFactory><PropertyValueFactory property="id"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Name" prefWidth="150">
+                        <cellValueFactory><PropertyValueFactory property="name"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Description" prefWidth="250">
+                        <cellValueFactory><PropertyValueFactory property="description"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Price" prefWidth="100">
+                        <cellValueFactory><PropertyValueFactory property="price"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Duration (days)" prefWidth="120">
+                        <cellValueFactory><PropertyValueFactory property="duration"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Benefits" prefWidth="200">
+                        <cellValueFactory><PropertyValueFactory property="benefits"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Active" prefWidth="80">
+                        <cellValueFactory><PropertyValueFactory property="active"/></cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <Button text="Delete Selected" onAction="#handleDeletePlan" 
+                        styleClass="action-button" 
+                        style="-fx-background-color: #E74C3C;"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
+

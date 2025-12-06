@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.gym.controller.admin.ReportsController">
+    <top>
+        <HBox styleClass="dashboard-header" alignment="CENTER_LEFT" spacing="15">
+            <Button text="← Back" onAction="#handleBack" styleClass="action-button" style="-fx-background-color: #95A5A6;"/>
+            <Label text="📊 Reports &amp; Analytics" styleClass="dashboard-title"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="20" styleClass="dashboard-content">
+            <VBox spacing="15" styleClass="action-card">
+                <Label text="Revenue Summary" styleClass="section-title"/>
+                <HBox spacing="20">
+                    <VBox spacing="5" styleClass="action-card">
+                        <padding>
+                            <Insets top="15.0" right="15.0" bottom="15.0" left="15.0"/>
+                        </padding>
+                        <Label text="Total Revenue" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #27AE60;"/>
+                        <Label fx:id="totalRevenueLabel" text="0.00" style="-fx-font-size: 24px;"/>
+                    </VBox>
+                    <VBox spacing="5" styleClass="action-card">
+                        <padding>
+                            <Insets top="15.0" right="15.0" bottom="15.0" left="15.0"/>
+                        </padding>
+                        <Label text="This Month" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #3498DB;"/>
+                        <Label fx:id="monthRevenueLabel" text="0.00" style="-fx-font-size: 24px;"/>
+                    </VBox>
+                    <VBox spacing="5" styleClass="action-card">
+                        <padding>
+                            <Insets top="15.0" right="15.0" bottom="15.0" left="15.0"/>
+                        </padding>
+                        <Label text="Total Members" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #E74C3C;"/>
+                        <Label fx:id="totalMembersLabel" text="0" style="-fx-font-size: 24px;"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+            
+            <VBox spacing="15" styleClass="action-card">
+                <Label text="Statistics" styleClass="section-title"/>
+                <VBox spacing="15">
+                    <HBox spacing="20">
+                        <VBox spacing="5" minWidth="200.0" prefWidth="200.0">
+                            <Label text="Total Users:" style="-fx-font-weight: bold;"/>
+                            <Label fx:id="totalUsersLabel" text="0" style="-fx-font-size: 16px;"/>
+                        </VBox>
+                        <VBox spacing="5" minWidth="200.0" prefWidth="200.0">
+                            <Label text="Active Trainers:" style="-fx-font-weight: bold;"/>
+                            <Label fx:id="activeTrainersLabel" text="0" style="-fx-font-size: 16px;"/>
+                        </VBox>
+                        <VBox spacing="5" minWidth="200.0" prefWidth="200.0">
+                            <Label text="Total Classes:" style="-fx-font-weight: bold;"/>
+                            <Label fx:id="totalClassesLabel" text="0" style="-fx-font-size: 16px;"/>
+                        </VBox>
+                    </HBox>
+                    <HBox spacing="20">
+                        <VBox spacing="5" minWidth="200.0" prefWidth="200.0">
+                            <Label text="Total Bookings:" style="-fx-font-weight: bold;"/>
+                            <Label fx:id="totalBookingsLabel" text="0" style="-fx-font-size: 16px;"/>
+                        </VBox>
+                        <VBox spacing="5" minWidth="200.0" prefWidth="200.0">
+                            <Label text="Total Equipment:" style="-fx-font-weight: bold;"/>
+                            <Label fx:id="totalEquipmentLabel" text="0" style="-fx-font-size: 16px;"/>
+                        </VBox>
+                        <VBox spacing="5" minWidth="200.0" prefWidth="200.0">
+                            <Label text="Active Plans:" style="-fx-font-weight: bold;"/>
+                            <Label fx:id="activePlansLabel" text="0" style="-fx-font-size: 16px;"/>
+                        </VBox>
+                    </HBox>
+                </VBox>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.gym.controller.trainer.AssignWorkoutPlanController">
+    <top>
+        <HBox styleClass="dashboard-header" alignment="CENTER_LEFT" spacing="15">
+            <Button text="← Back" onAction="#handleBack" styleClass="action-button" style="-fx-background-color: #95A5A6;"/>
+            <Label text="👥 Assign Workout Plan" styleClass="dashboard-title"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="20" styleClass="dashboard-content">
+            <HBox spacing="10">
+                <Label text="Select Workout Plan:"/>
+                <ComboBox fx:id="workoutPlanCombo" prefWidth="200"/>
+                <Label text="Select Member:"/>
+                <ComboBox fx:id="memberCombo" prefWidth="200"/>
+                <Button text="Assign" onAction="#handleAssign" styleClass="action-button" style="-fx-background-color: #27AE60;"/>
+            </HBox>
+            <Label text="Currently Assigned:" styleClass="section-title"/>
+            <TableView fx:id="assignmentsTable" style="-fx-background-color: white;">
+                <columns>
+                    <TableColumn text="Member" prefWidth="200">
+                        <cellValueFactory><PropertyValueFactory property="memberName"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Workout Plan" prefWidth="200">
+                        <cellValueFactory><PropertyValueFactory property="planName"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Status" prefWidth="120">
+                        <cellValueFactory><PropertyValueFactory property="status"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Started" prefWidth="150">
+                        <cellValueFactory><PropertyValueFactory property="startedAtStr"/></cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+            <HBox spacing="10">
+                <Button text="Remove Assignment" onAction="#handleRemove" styleClass="action-button" style="-fx-background-color: #E74C3C;"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
+

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.gym.controller.admin.EquipmentManagementController">
+    <top>
+        <HBox styleClass="dashboard-header" alignment="CENTER_LEFT" spacing="15">
+            <Button text="← Back" onAction="#handleBack" styleClass="action-button" style="-fx-background-color: #95A5A6;"/>
+            <Label text="🔧 Equipment Management" styleClass="dashboard-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Add Equipment" onAction="#handleAddEquipment" styleClass="action-button"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="20" styleClass="dashboard-content">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Filter by Status:" style="-fx-font-size: 14px; -fx-text-fill: #2C3E50;"/>
+                <ComboBox fx:id="statusFilter" promptText="All Status" onAction="#handleFilter"/>
+            </HBox>
+            
+            <TableView fx:id="equipmentTable" style="-fx-background-color: white;">
+                <columns>
+                    <TableColumn text="ID" prefWidth="50">
+                        <cellValueFactory><PropertyValueFactory property="id"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Name" prefWidth="200">
+                        <cellValueFactory><PropertyValueFactory property="name"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Description" prefWidth="250">
+                        <cellValueFactory><PropertyValueFactory property="description"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Status" prefWidth="120">
+                        <cellValueFactory><PropertyValueFactory property="status"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Purchase Date" prefWidth="120">
+                        <cellValueFactory><PropertyValueFactory property="purchaseDateStr"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Last Maintenance" prefWidth="120">
+                        <cellValueFactory><PropertyValueFactory property="lastMaintenanceStr"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Active" prefWidth="80">
+                        <cellValueFactory><PropertyValueFactory property="active"/></cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <Button text="Delete Selected" onAction="#handleDeleteEquipment" 
+                        styleClass="action-button" 
+                        style="-fx-background-color: #E74C3C;"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
+

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.gym.controller.trainer.MarkAttendanceController">
+    <top>
+        <HBox styleClass="dashboard-header" alignment="CENTER_LEFT" spacing="15">
+            <Button text="← Back" onAction="#handleBack" styleClass="action-button" style="-fx-background-color: #95A5A6;"/>
+            <Label text="✅ Mark Attendance" styleClass="dashboard-title"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="20" styleClass="dashboard-content">
+            <HBox spacing="10">
+                <Label text="Select Class:"/>
+                <ComboBox fx:id="classCombo" prefWidth="300"/>
+                <Button text="Load Bookings" onAction="#handleLoadBookings" styleClass="action-button"/>
+            </HBox>
+            <Label text="Bookings for Selected Class:" styleClass="section-title"/>
+            <TableView fx:id="bookingsTable" style="-fx-background-color: white;">
+                <columns>
+                    <TableColumn text="Member" prefWidth="200">
+                        <cellValueFactory><PropertyValueFactory property="memberName"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Booking Status" prefWidth="120">
+                        <cellValueFactory><PropertyValueFactory property="bookingStatus"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Attendance Status" prefWidth="150">
+                        <cellValueFactory><PropertyValueFactory property="attendanceStatus"/></cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+            <HBox spacing="10">
+                <Button text="Mark Present" onAction="#handleMarkPresent" styleClass="action-button" style="-fx-background-color: #27AE60;"/>
+                <Button text="Mark Absent" onAction="#handleMarkAbsent" styleClass="action-button" style="-fx-background-color: #E74C3C;"/>
+                <Button text="Mark Late" onAction="#handleMarkLate" styleClass="action-button" style="-fx-background-color: #F39C12;"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
+

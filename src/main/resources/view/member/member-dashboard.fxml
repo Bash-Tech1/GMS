@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.gym.controller.member.MemberDashboardController">
+    <top>
+        <HBox styleClass="dashboard-header" alignment="CENTER_LEFT" spacing="15">
+            <Label text="🎯 Member Dashboard" styleClass="dashboard-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Logout" onAction="#handleLogout" styleClass="logout-button"/>
+        </HBox>
+    </top>
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background: #F5F6FA;">
+            <VBox spacing="25" styleClass="dashboard-content">
+                <VBox spacing="10" styleClass="welcome-section">
+                    <Label text="Welcome, Member!" styleClass="welcome-text"/>
+                    <Label text="Access your workouts, classes, and progress" styleClass="welcome-subtext"/>
+                </VBox>
+                
+                <!-- Classes Section -->
+                <VBox spacing="15">
+                    <Label text="📅 Classes" styleClass="section-title"/>
+                    <GridPane hgap="20" vgap="20" styleClass="actions-grid">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+                            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+                            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+                        </columnConstraints>
+                        <VBox styleClass="action-card" GridPane.columnIndex="0">
+                            <Label text="View Classes" styleClass="action-card-title"/>
+                            <Label text="Browse available fitness classes" 
+                                   styleClass="action-card-description" wrapText="true"/>
+                            <Button text="Open" onAction="#handleViewClasses" styleClass="action-button" 
+                                    HBox.hgrow="ALWAYS" style="-fx-margin-top: 10px;"/>
+                        </VBox>
+                        <VBox styleClass="action-card" GridPane.columnIndex="1">
+                            <Label text="Book Class" styleClass="action-card-title"/>
+                            <Label text="Book a spot in a fitness class" 
+                                   styleClass="action-card-description" wrapText="true"/>
+                            <Button text="Open" onAction="#handleBookClass" styleClass="action-button" 
+                                    HBox.hgrow="ALWAYS" style="-fx-margin-top: 10px;"/>
+                        </VBox>
+                        <VBox styleClass="action-card" GridPane.columnIndex="2">
+                            <Label text="My Bookings" styleClass="action-card-title"/>
+                            <Label text="View and manage your class bookings" 
+                                   styleClass="action-card-description" wrapText="true"/>
+                            <Button text="Open" onAction="#handleMyBookings" styleClass="action-button" 
+                                    HBox.hgrow="ALWAYS" style="-fx-margin-top: 10px;"/>
+                        </VBox>
+                    </GridPane>
+                </VBox>
+                
+                <!-- Workout Plans Section -->
+                <VBox spacing="15">
+                    <Label text="💪 Workout Plans" styleClass="section-title"/>
+                    <GridPane hgap="20" vgap="20" styleClass="actions-grid">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+                            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+                        </columnConstraints>
+                        <VBox styleClass="action-card" GridPane.columnIndex="0">
+                            <Label text="My Workout Plans" styleClass="action-card-title"/>
+                            <Label text="View your assigned workout plans" 
+                                   styleClass="action-card-description" wrapText="true"/>
+                            <Button text="Open" onAction="#handleMyWorkoutPlans" styleClass="action-button" 
+                                    HBox.hgrow="ALWAYS" style="-fx-margin-top: 10px;"/>
+                        </VBox>
+                        <VBox styleClass="action-card" GridPane.columnIndex="1">
+                            <Label text="Workout Progress" styleClass="action-card-title"/>
+                            <Label text="Track your workout progress and achievements" 
+                                   styleClass="action-card-description" wrapText="true"/>
+                            <Button text="Open" onAction="#handleWorkoutProgress" styleClass="action-button" 
+                                    HBox.hgrow="ALWAYS" style="-fx-margin-top: 10px;"/>
+                        </VBox>
+                    </GridPane>
+                </VBox>
+                
+                <!-- Diet & Nutrition Section -->
+                <VBox spacing="15">
+                    <Label text="🥗 Diet &amp; Nutrition" styleClass="section-title"/>
+                    <GridPane hgap="20" vgap="20" styleClass="actions-grid">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+                            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+                        </columnConstraints>
+                        <VBox styleClass="action-card" GridPane.columnIndex="0">
+                            <Label text="My Diet Chart" styleClass="action-card-title"/>
+                            <Label text="View your personalized diet plan" 
+                                   styleClass="action-card-description" wrapText="true"/>
+                            <Button text="Open" onAction="#handleMyDietChart" styleClass="action-button" 
+                                    HBox.hgrow="ALWAYS" style="-fx-margin-top: 10px;"/>
+                        </VBox>
+                        <VBox styleClass="action-card" GridPane.columnIndex="1">
+                            <Label text="Nutrition Tips" styleClass="action-card-title"/>
+                            <Label text="Get nutrition tips and recommendations" 
+                                   styleClass="action-card-description" wrapText="true"/>
+                            <Button text="Open" onAction="#handleNutritionTips" styleClass="action-button" 
+                                    HBox.hgrow="ALWAYS" style="-fx-margin-top: 10px;"/>
+                        </VBox>
+                    </GridPane>
+                </VBox>
+                
+                <!-- Payments & Profile Section -->
+                <VBox spacing="15">
+                    <Label text="💳 Payments &amp; Profile" styleClass="section-title"/>
+                    <GridPane hgap="20" vgap="20" styleClass="actions-grid">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+                            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+                            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+                        </columnConstraints>
+                        <VBox styleClass="action-card" GridPane.columnIndex="0">
+                            <Label text="Payment History" styleClass="action-card-title"/>
+                            <Label text="View your payment history and invoices" 
+                                   styleClass="action-card-description" wrapText="true"/>
+                            <Button text="Open" onAction="#handlePaymentHistory" styleClass="action-button" 
+                                    HBox.hgrow="ALWAYS" style="-fx-margin-top: 10px;"/>
+                        </VBox>
+                        <VBox styleClass="action-card" GridPane.columnIndex="1">
+                            <Label text="Make Payment" styleClass="action-card-title"/>
+                            <Label text="Make a payment for your membership" 
+                                   styleClass="action-card-description" wrapText="true"/>
+                            <Button text="Open" onAction="#handleMakePayment" styleClass="action-button" 
+                                    HBox.hgrow="ALWAYS" style="-fx-margin-top: 10px;"/>
+                        </VBox>
+                        <VBox styleClass="action-card" GridPane.columnIndex="2">
+                            <Label text="My Profile" styleClass="action-card-title"/>
+                            <Label text="View and edit your profile information" 
+                                   styleClass="action-card-description" wrapText="true"/>
+                            <Button text="Open" onAction="#handleMyProfile" styleClass="action-button" 
+                                    HBox.hgrow="ALWAYS" style="-fx-margin-top: 10px;"/>
+                        </VBox>
+                    </GridPane>
+                </VBox>
+                
+                <!-- Attendance & Statistics Section -->
+                <VBox spacing="15">
+                    <Label text="📊 Attendance &amp; Statistics" styleClass="section-title"/>
+                    <GridPane hgap="20" vgap="20" styleClass="actions-grid">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+                            <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+                        </columnConstraints>
+                        <VBox styleClass="action-card" GridPane.columnIndex="0">
+                            <Label text="Attendance History" styleClass="action-card-title"/>
+                            <Label text="View your class attendance history" 
+                                   styleClass="action-card-description" wrapText="true"/>
+                            <Button text="Open" onAction="#handleAttendanceHistory" styleClass="action-button" 
+                                    HBox.hgrow="ALWAYS" style="-fx-margin-top: 10px;"/>
+                        </VBox>
+                        <VBox styleClass="action-card" GridPane.columnIndex="1">
+                            <Label text="My Statistics" styleClass="action-card-title"/>
+                            <Label text="View your fitness statistics and achievements" 
+                                   styleClass="action-card-description" wrapText="true"/>
+                            <Button text="Open" onAction="#handleMyStatistics" styleClass="action-button" 
+                                    HBox.hgrow="ALWAYS" style="-fx-margin-top: 10px;"/>
+                        </VBox>
+                    </GridPane>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.gym.controller.trainer.RequestEquipmentController">
+    <top>
+        <HBox styleClass="dashboard-header" alignment="CENTER_LEFT" spacing="15">
+            <Button text="← Back" onAction="#handleBack" styleClass="action-button" style="-fx-background-color: #95A5A6;"/>
+            <Label text="📋 Request Equipment" styleClass="dashboard-title"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="20" styleClass="dashboard-content">
+            <VBox spacing="10" styleClass="action-card">
+                <Label text="Available Equipment:" styleClass="section-title"/>
+                <TableView fx:id="availableEquipmentTable" style="-fx-background-color: white;">
+                    <columns>
+                        <TableColumn text="Equipment Name" prefWidth="200">
+                            <cellValueFactory><PropertyValueFactory property="name"/></cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="Status" prefWidth="100">
+                            <cellValueFactory><PropertyValueFactory property="status"/></cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="Description" prefWidth="300">
+                            <cellValueFactory><PropertyValueFactory property="description"/></cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+                <HBox spacing="10">
+                    <Button text="Request Equipment" onAction="#handleRequest" styleClass="action-button" style="-fx-background-color: #3498DB;"/>
+                    <Label text="Note: Equipment requests must be approved by admin." style="-fx-text-fill: #7F8C8D;"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>
+

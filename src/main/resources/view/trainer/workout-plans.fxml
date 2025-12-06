@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.gym.controller.trainer.WorkoutPlansController">
+    <top>
+        <HBox styleClass="dashboard-header" alignment="CENTER_LEFT" spacing="15">
+            <Button text="← Back" onAction="#handleBack" styleClass="action-button" style="-fx-background-color: #95A5A6;"/>
+            <Label text="🏋️ My Workout Plans" styleClass="dashboard-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="+ Create New" onAction="#handleCreate" styleClass="action-button" style="-fx-background-color: #27AE60;"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="20" styleClass="dashboard-content">
+            <TableView fx:id="workoutPlansTable" style="-fx-background-color: white;">
+                <columns>
+                    <TableColumn text="ID" prefWidth="50">
+                        <cellValueFactory><PropertyValueFactory property="id"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Name" prefWidth="200">
+                        <cellValueFactory><PropertyValueFactory property="name"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Duration (days)" prefWidth="120">
+                        <cellValueFactory><PropertyValueFactory property="duration"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Difficulty" prefWidth="120">
+                        <cellValueFactory><PropertyValueFactory property="difficulty"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Status" prefWidth="100">
+                        <cellValueFactory><PropertyValueFactory property="status"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Created" prefWidth="150">
+                        <cellValueFactory><PropertyValueFactory property="createdAtStr"/></cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+            <HBox spacing="10">
+                <Button text="Edit" onAction="#handleEdit" styleClass="action-button"/>
+                <Button text="Delete" onAction="#handleDelete" styleClass="action-button" style="-fx-background-color: #E74C3C;"/>
+                <Button text="Assign to Member" onAction="#handleAssign" styleClass="action-button" style="-fx-background-color: #3498DB;"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
+

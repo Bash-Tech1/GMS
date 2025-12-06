@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.gym.controller.admin.PaymentHistoryController">
+    <top>
+        <HBox styleClass="dashboard-header" alignment="CENTER_LEFT" spacing="15">
+            <Button text="← Back" onAction="#handleBack" styleClass="action-button" style="-fx-background-color: #95A5A6;"/>
+            <Label text="💳 Payment History" styleClass="dashboard-title"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="20" styleClass="dashboard-content">
+            <TableView fx:id="paymentsTable" style="-fx-background-color: white;">
+                <columns>
+                    <TableColumn text="ID" prefWidth="50">
+                        <cellValueFactory><PropertyValueFactory property="id"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="User" prefWidth="150">
+                        <cellValueFactory><PropertyValueFactory property="userName"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Plan" prefWidth="120">
+                        <cellValueFactory><PropertyValueFactory property="planName"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Amount" prefWidth="100">
+                        <cellValueFactory><PropertyValueFactory property="amountStr"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Method" prefWidth="120">
+                        <cellValueFactory><PropertyValueFactory property="method"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Status" prefWidth="100">
+                        <cellValueFactory><PropertyValueFactory property="status"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Date" prefWidth="150">
+                        <cellValueFactory><PropertyValueFactory property="paidDateStr"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Reference" prefWidth="150">
+                        <cellValueFactory><PropertyValueFactory property="reference"/></cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>
+

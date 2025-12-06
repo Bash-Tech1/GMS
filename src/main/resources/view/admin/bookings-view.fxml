@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.gym.controller.admin.BookingsViewController">
+    <top>
+        <HBox styleClass="dashboard-header" alignment="CENTER_LEFT" spacing="15">
+            <Button text="← Back" onAction="#handleBack" styleClass="action-button" style="-fx-background-color: #95A5A6;"/>
+            <Label text="📋 All Bookings" styleClass="dashboard-title"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="20" styleClass="dashboard-content">
+            <TableView fx:id="bookingsTable" style="-fx-background-color: white;">
+                <columns>
+                    <TableColumn text="ID" prefWidth="50">
+                        <cellValueFactory><PropertyValueFactory property="id"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Member" prefWidth="150">
+                        <cellValueFactory><PropertyValueFactory property="memberName"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Class" prefWidth="200">
+                        <cellValueFactory><PropertyValueFactory property="className"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Booking Date" prefWidth="150">
+                        <cellValueFactory><PropertyValueFactory property="bookingDateStr"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Status" prefWidth="120">
+                        <cellValueFactory><PropertyValueFactory property="status"/></cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>
+

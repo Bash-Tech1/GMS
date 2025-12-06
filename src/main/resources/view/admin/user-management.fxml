@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.gym.controller.admin.UserManagementController">
+    <top>
+        <HBox styleClass="dashboard-header" alignment="CENTER_LEFT" spacing="15">
+            <Button text="← Back" onAction="#handleBack" styleClass="action-button" style="-fx-background-color: #95A5A6;"/>
+            <Label text="👥 User Management" styleClass="dashboard-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Add New User" onAction="#handleAddUser" styleClass="action-button"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="20" styleClass="dashboard-content">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Filter by Role:" style="-fx-font-size: 14px; -fx-text-fill: #2C3E50;"/>
+                <ComboBox fx:id="roleFilter" promptText="All Roles" onAction="#handleFilter"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <TextField fx:id="searchField" promptText="Search by name or email..." 
+                           onKeyReleased="#handleSearch" styleClass="login-field" 
+                           style="-fx-pref-width: 300px;"/>
+            </HBox>
+            
+            <TableView fx:id="usersTable" style="-fx-background-color: white;">
+                <columns>
+                    <TableColumn text="ID" prefWidth="50">
+                        <cellValueFactory><PropertyValueFactory property="id"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Full Name" prefWidth="150">
+                        <cellValueFactory><PropertyValueFactory property="fullName"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Email" prefWidth="200">
+                        <cellValueFactory><PropertyValueFactory property="email"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Username" prefWidth="120">
+                        <cellValueFactory><PropertyValueFactory property="username"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Phone" prefWidth="120">
+                        <cellValueFactory><PropertyValueFactory property="phone"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Role" prefWidth="80">
+                        <cellValueFactory><PropertyValueFactory property="role"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Plan ID" prefWidth="70">
+                        <cellValueFactory><PropertyValueFactory property="planId"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Status" prefWidth="80">
+                        <cellValueFactory><PropertyValueFactory property="active"/></cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <Button text="Delete Selected" onAction="#handleDeleteUser" 
+                        styleClass="action-button" 
+                        style="-fx-background-color: #E74C3C;"
+                        fx:id="deleteButton"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
+

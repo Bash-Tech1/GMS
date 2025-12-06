@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.gym.controller.trainer.ClassEquipmentController">
+    <top>
+        <HBox styleClass="dashboard-header" alignment="CENTER_LEFT" spacing="15">
+            <Button text="← Back" onAction="#handleBack" styleClass="action-button" style="-fx-background-color: #95A5A6;"/>
+            <Label text="🔧 Class Equipment" styleClass="dashboard-title"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="20" styleClass="dashboard-content">
+            <HBox spacing="10">
+                <Label text="Select Class:"/>
+                <ComboBox fx:id="classCombo" prefWidth="300"/>
+                <Button text="Add Equipment" onAction="#handleAdd" styleClass="action-button" style="-fx-background-color: #27AE60;"/>
+            </HBox>
+            <Label text="Equipment for Selected Class:" styleClass="section-title"/>
+            <TableView fx:id="equipmentTable" style="-fx-background-color: white;">
+                <columns>
+                    <TableColumn text="Equipment" prefWidth="200">
+                        <cellValueFactory><PropertyValueFactory property="equipmentName"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Quantity" prefWidth="100">
+                        <cellValueFactory><PropertyValueFactory property="quantity"/></cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+            <HBox spacing="10">
+                <Button text="Remove" onAction="#handleRemove" styleClass="action-button" style="-fx-background-color: #E74C3C;"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
+
